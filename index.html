@@ -10,351 +10,284 @@
 
   body {
     font-family: 'Inter', Arial, sans-serif;
-    background: #f4e9cd;
-    color: #333;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: #f4e9cd; color: #333;
+    min-height: 100vh; display: flex; flex-direction: column; align-items: center;
     padding: 30px 20px 50px;
   }
 
-  /* header */
-  .header { text-align: center; margin-bottom: 20px; }
-  .header h1 {
-    font-size: 1.8rem; font-weight: 800; color: #1a1a2e;
-    margin-bottom: 4px;
-  }
+  .header { text-align: center; margin-bottom: 16px; }
+  .header h1 { font-size: 1.8rem; font-weight: 800; color: #1a1a2e; margin-bottom: 4px; }
   .header-sub { color: #666; font-size: 0.9rem; }
 
-  /* PANEL DE CONTROL */
+  .hint-bar {
+    background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px;
+    padding: 8px 18px; margin-bottom: 14px;
+    font-size: 0.82rem; color: #1e40af; display: flex; gap: 18px; flex-wrap: wrap; justify-content: center;
+  }
+  .hint-bar span { display: flex; align-items: center; gap: 5px; }
+
   .control-panel {
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 12px 20px;
-    margin-bottom: 16px;
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    background: #fff; border: 1px solid #ddd; border-radius: 10px;
+    padding: 12px 20px; margin-bottom: 14px;
+    display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: center;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
   }
-  .control-panel label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #555;
-  }
+  .control-panel label { font-size: 0.85rem; font-weight: 600; color: #555; }
   .control-panel select, .control-panel button {
-    padding: 8px 14px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    cursor: pointer;
+    padding: 8px 14px; border-radius: 6px; border: 1px solid #ccc;
+    font-family: 'Inter', sans-serif; font-size: 0.9rem; cursor: pointer;
   }
-  .control-panel button {
-    background: #3b82f6;
-    color: white;
-    border: none;
-    font-weight: 600;
-    transition: background 0.15s;
-  }
+  .control-panel button { background: #3b82f6; color: white; border: none; font-weight: 600; transition: background 0.15s; }
   .control-panel button:hover { background: #2563eb; }
-  .control-panel button.danger {
-    background: #ef4444;
-  }
+  .control-panel button.danger { background: #ef4444; }
   .control-panel button.danger:hover { background: #dc2626; }
-  .control-panel button.secondary {
-    background: #6b7280;
-  }
+  .control-panel button.secondary { background: #6b7280; }
   .control-panel button.secondary:hover { background: #4b5563; }
 
-  /* stats */
-  .stats-bar {
-    display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; justify-content: center;
-  }
+  .stats-bar { display: flex; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; justify-content: center; }
   .stat-pill {
     background: #f4e9cd; border: 1px solid #ddd; border-radius: 8px;
-    padding: 6px 16px; display: flex; align-items: center; gap: 8px;
-    font-size: 0.85rem; color: #555;
+    padding: 6px 16px; display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #555;
   }
   .stat-pill strong { font-weight: 700; color: #222; }
   .stat-dot { width: 10px; height: 10px; border-radius: 50%; }
 
-  /* MAIN */
   .main-wrap { width: 100%; }
   .hall-outer {
-    background: #bac4c8 ; border: 1px solid #ccc; border-radius: 10px;
-    padding: 16px; overflow-x: auto;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    background: #bac4c8; border: 1px solid #ccc; border-radius: 10px;
+    padding: 16px; overflow-x: auto; box-shadow: 0 2px 12px rgba(0,0,0,0.08);
   }
-
-  .dim-top {
-    text-align: center; font-size: 0.75rem; color: #999;
-    letter-spacing: 0.08em; padding-bottom: 8px; font-weight: 600;
-  }
+  .dim-top { text-align: center; font-size: 0.75rem; color: #666; letter-spacing: 0.08em; padding-bottom: 8px; font-weight: 700; }
   .hall-row { display: flex; gap: 0; }
   .dim-side {
     writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg);
-    font-size: 0.75rem; color: #999; letter-spacing: 0.08em;
-    padding-right: 12px; display: flex; align-items: center;
-    justify-content: center; white-space: nowrap; font-weight: 800; min-width: 20px;
+    font-size: 0.75rem; color: #666; letter-spacing: 0.08em;
+    padding-right: 12px; display: flex; align-items: center; justify-content: center;
+    white-space: nowrap; font-weight: 800; min-width: 20px;
   }
 
-  /* ===== SALA - ESCALA 2X (1m = 60px) ===== */
-  .sala {
-    display: flex;
-    width: 1620px; /* 27m */
-    height: 600px; /* 10m */
-    border: 3px solid #333;
-    border-radius: 4px;
-    overflow: hidden;
-    flex-shrink: 0;
-    position: relative;
+  .complex-wrap { display: flex; flex-direction: column; align-items: flex-start; gap: 0; width: fit-content; }
+
+  .zona-entrada {
+    width: 1620px; height: 360px;
+    border: 3px solid #333; border-bottom: none;
+    border-radius: 4px 4px 0 0;
     background: #fafafa;
+    display: flex; flex-direction: row; flex-shrink: 0;
+    position: relative; overflow: hidden;
   }
 
-  /* ===== ZONA CONFERENCIAS (5m × 10m) ===== */
+  .pared-h {
+    width: 1620px; height: 10px;
+    background: repeating-linear-gradient(90deg, #555 0px, #555 14px, #888 14px, #888 20px);
+    border-left: 3px solid #333; border-right: 3px solid #333; flex-shrink: 0;
+  }
+
+  .ent-acceso {
+    flex-shrink: 0; height: 100%;
+    background: linear-gradient(180deg, #fffbeb, #fef3c7);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+    position: relative; overflow: hidden;
+    min-width: 120px;
+  }
+  .ent-acceso-icon { font-size: 2.6rem; }
+  .ent-acceso-label { font-weight: 800; color: #92400e; font-size: 0.9rem; letter-spacing: 0.12em; text-transform: uppercase; text-align: center; }
+  .ent-acceso-dim { font-size: 0.75rem; color: #b45309; font-weight: 600; }
+  .ent-solo-badge {
+    position: absolute; top: 10px; right: 10px;
+    background: #92400e; color: #fff; font-size: 0.6rem; font-weight: 700;
+    letter-spacing: 0.1em; padding: 3px 7px; border-radius: 4px; text-transform: uppercase;
+  }
+
+  .ent-registro {
+    flex-shrink: 0; height: 100%;
+    background: #f0f9ff;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+    position: relative; overflow: hidden;
+    min-width: 100px;
+  }
+  .ent-registro-icon { font-size: 1.8rem; }
+  .ent-registro-label { font-weight: 800; color: #0369a1; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; text-align: center; }
+  .ent-mesa {
+    width: 90px; height: 55px;
+    background: #bae6fd; border: 2px solid #0ea5e9; border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.68rem; font-weight: 700; color: #0369a1; text-align: center;
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+
+  .resize-handle {
+    width: 8px; flex-shrink: 0; height: 100%;
+    background: repeating-linear-gradient(180deg, #c7d2fe 0px, #c7d2fe 6px, #818cf8 6px, #818cf8 8px);
+    cursor: col-resize;
+    display: flex; align-items: center; justify-content: center;
+    position: relative; z-index: 20;
+    border-left: 1px solid #a5b4fc; border-right: 1px solid #a5b4fc;
+    transition: background 0.15s;
+  }
+  .resize-handle:hover, .resize-handle.dragging { background: #6366f1; }
+  .resize-handle::after {
+    content: '⋮⋮'; color: #fff; font-size: 11px; letter-spacing: -1px; pointer-events: none;
+  }
+
+  .ent-stand-individual {
+    width: 150px; flex-shrink: 0; height: 100%;
+    border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 8px; border: 2px solid #a855f7;
+    background: linear-gradient(180deg, #faf5ff, #f3e8ff);
+    box-shadow: 0 2px 6px rgba(168,85,247,0.15);
+    transition: transform 0.15s, box-shadow 0.15s;
+    user-select: none; position: relative;
+    cursor: pointer;
+  }
+  .ent-stand-individual:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(168,85,247,0.3); }
+  .ent-stand-individual.asignado { background: linear-gradient(180deg, #e9d5ff, #d8b4fe); }
+  
+  .ent-stand-individual .stand-letra { font-size: 1.8rem; font-weight: 900; line-height: 1; margin-bottom: 4px; color: #7e22ce; }
+  .ent-stand-individual .stand-nombre {
+    width: 92%; padding: 5px 8px;
+    background: rgba(255,255,255,0.7); border: 1.5px dashed #bbb;
+    border-radius: 4px; color: #444; font-size: 0.82rem;
+    font-family: 'Inter', sans-serif; font-weight: 600; text-align: center;
+    outline: none; transition: all 0.15s; pointer-events: none;
+  }
+  .ent-stand-individual .stand-nombre.filled { border-style: solid; border-color: #666; color: #222; }
+
+  .ent-espacio-puerta {
+    width: 150px; flex-shrink: 0; height: 100%;
+    background: linear-gradient(180deg, #fffbeb, #fef3c7);
+    border-left: 3px dashed #f59e0b;
+    border-right: 3px dashed #f59e0b;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  }
+  .ent-espacio-puerta-icon { font-size: 2.2rem; }
+  .ent-espacio-puerta-label { font-weight: 800; color: #92400e; font-size: 0.82rem; letter-spacing: 0.15em; text-transform: uppercase; text-align: center; }
+  .ent-espacio-puerta-dim { font-size: 0.7rem; color: #b45309; }
+
+  .ent-salida {
+    width: 150px; flex-shrink: 0; height: 100%;
+    background: linear-gradient(180deg, #fef2f2, #fee2e2);
+    border-left: 3px dashed #ef4444;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  }
+  .ent-salida-icon { font-size: 2.2rem; }
+  .ent-salida-label { font-weight: 800; color: #991b1b; font-size: 0.82rem; letter-spacing: 0.15em; text-transform: uppercase; text-align: center; }
+
+  .sala {
+    display: flex; width: 1620px; height: 600px;
+    border: 3px solid #333; border-top: none; border-radius: 0 0 4px 4px;
+    overflow: hidden; flex-shrink: 0; background: #fafafa;
+  }
   .zona-ponencias {
     width: 300px; flex-shrink: 0; height: 100%;
-    background: #dbeafe;
-    border-right: 3px solid #3b82f6;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    position: relative;
+    background: #dbeafe; border-right: 3px solid #3b82f6;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;
   }
   .ponencias-inner { text-align: center; }
-  .ponencias-icon {
-    font-size: 2.5rem; margin-bottom: 12px;
-  }
-  .ponencias-label {
-    font-size: 1.1rem; font-weight: 800; color: #1e40af;
-    text-transform: uppercase; letter-spacing: 0.1em; line-height: 1.4;
-  }
-  .escenario-badge {
-    margin-top: 14px; padding: 6px 18px;
-    background: #1e40af; color: #fff;
-    border-radius: 4px; font-size: 0.8rem;
-    font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
-  }
-  .ponencias-dim {
-    position: absolute; bottom: 12px; left: 0; right: 0; text-align: center;
-    font-size: 0.8rem; color: #6b8ec2; font-weight: 600;
-  }
-
-  /* ===== BUFFER (1.5m) ===== */
+  .ponencias-icon { font-size: 2.5rem; margin-bottom: 12px; }
+  .ponencias-label { font-size: 1.1rem; font-weight: 800; color: #1e40af; text-transform: uppercase; letter-spacing: 0.1em; line-height: 1.4; }
+  .escenario-badge { margin-top: 14px; padding: 6px 18px; background: #1e40af; color: #fff; border-radius: 4px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; }
+  .ponencias-dim { position: absolute; bottom: 12px; left: 0; right: 0; text-align: center; font-size: 0.8rem; color: #6b8ec2; font-weight: 600; }
   .zona-buffer {
     width: 90px; flex-shrink: 0; height: 100%;
-    background: repeating-linear-gradient(
-      0deg, #f5f3ff 0px, #f5f3ff 20px,
-      #ede9fe 20px, #ede9fe 22px
-    );
+    background: repeating-linear-gradient(0deg, #f5f3ff 0px, #f5f3ff 20px, #ede9fe 20px, #ede9fe 22px);
     border-right: 3px dashed #8b5cf6;
     display: flex; align-items: center; justify-content: center;
   }
   .buffer-label {
     writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg);
-    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em;
-    text-transform: uppercase; color: #7c3aed;
-    background: #ede9fe; padding: 12px 6px; border-radius: 4px;
-    border: 1px solid #c4b5fd;
+    font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #7c3aed;
+    background: #ede9fe; padding: 12px 6px; border-radius: 4px; border: 1px solid #c4b5fd;
   }
-
-  /* ===== ZONA EXPOSITORES ===== */
-  .zona-expositores {
-    flex: 1; display: flex; flex-direction: column; background: #fff;
-  }
-
-  /* ===== PASILLOS (1.5m = 90px) ===== */
+  .zona-expositores { flex: 1; display: flex; flex-direction: column; background: #fff; }
   .zona-pasillo {
-    height: 90px;
-    background: #f5f5f5;
-    border-top: 2px solid #999;
-    border-bottom: 2px solid #999;
+    height: 90px; background: #f5f5f5;
+    border-top: 2px solid #999; border-bottom: 2px solid #999;
     display: flex; align-items: center; justify-content: center;
-    position: relative;
     background-image: repeating-linear-gradient(90deg, transparent 0px, transparent 40px, #e5e5e5 40px, #e5e5e5 41px);
   }
-  .pasillo-label {
-    font-size: 0.85rem; letter-spacing: 0.2em;
-    text-transform: uppercase; color: #666;
-    background: #fff; padding: 6px 22px; border-radius: 4px;
-    border: 1px solid #ccc; font-weight: 600;
-  }
-
-  /* ===== FILAS DE STANDS (2m = 120px) ===== */
+  .pasillo-label { font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: #666; background: #fff; padding: 6px 22px; border-radius: 4px; border: 1px solid #ccc; font-weight: 600; }
   .fila { display: flex; padding: 8px 10px; height: 120px; gap: 6px; }
-  
   .stand {
     width: 150px; flex-shrink: 0; border-radius: 6px;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
     cursor: pointer; transition: transform 0.15s, box-shadow 0.15s;
-    position: relative; padding: 8px;
-    border: 2px solid;
+    padding: 8px; border: 2px solid;
   }
   .stand:hover { transform: translateY(-3px); z-index: 10; }
-
-  .fila-top .stand {
-    background: linear-gradient(180deg, #fef2f2, #fee2e2);
-    border-color: #ef4444;
-    box-shadow: 0 2px 6px rgba(239,68,68,0.15);
-  }
+  .fila-top .stand { background: linear-gradient(180deg, #fef2f2, #fee2e2); border-color: #ef4444; box-shadow: 0 2px 6px rgba(239,68,68,0.15); }
   .fila-top .stand:hover { box-shadow: 0 6px 16px rgba(239,68,68,0.3); }
   .fila-top .stand.asignado { background: linear-gradient(180deg, #fecaca, #fca5a5); }
-
-  .fila-bottom .stand {
-    background: linear-gradient(180deg, #f0fdf4, #dcfce7);
-    border-color: #22c55e;
-    box-shadow: 0 2px 6px rgba(34,197,94,0.15);
-  }
+  .fila-bottom .stand { background: linear-gradient(180deg, #f0fdf4, #dcfce7); border-color: #22c55e; box-shadow: 0 2px 6px rgba(34,197,94,0.15); }
   .fila-bottom .stand:hover { box-shadow: 0 6px 16px rgba(34,197,94,0.3); }
   .fila-bottom .stand.asignado { background: linear-gradient(180deg, #bbf7d0, #86efac); }
-
-  .stand-letra {
-    font-size: 1.8rem; font-weight: 900;
-    line-height: 1; margin-bottom: 4px;
-  }
+  .stand-letra { font-size: 1.8rem; font-weight: 900; line-height: 1; margin-bottom: 4px; }
   .fila-top .stand .stand-letra { color: #dc2626; }
   .fila-bottom .stand .stand-letra { color: #16a34a; }
-
   .stand-nombre {
     width: 92%; padding: 5px 8px;
-    background: rgba(255,255,255,0.7);
-    border: 1.5px dashed #bbb;
-    border-radius: 4px; color: #444;
-    font-size: 0.85rem; font-family: 'Inter', sans-serif;
-    font-weight: 600; text-align: center;
-    outline: none; transition: all 0.15s;
+    background: rgba(255,255,255,0.7); border: 1.5px dashed #bbb;
+    border-radius: 4px; color: #444; font-size: 0.85rem; font-family: 'Inter', sans-serif;
+    font-weight: 600; text-align: center; outline: none; transition: all 0.15s;
   }
   .stand-nombre::placeholder { color: #aaa; font-style: italic; font-weight: 400; }
   .stand-nombre:focus { border-color: #3b82f6; background: #fff; }
   .stand-nombre.filled { border-style: solid; border-color: #666; color: #222; }
-
-  /* ===== PUERTAS / ENTRADAS ===== */
   .puerta {
     width: 150px; flex-shrink: 0; border-radius: 6px;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    position: relative; padding: 8px;
-    background: linear-gradient(180deg, #fffbeb, #fef3c7);
-    border: 3px dashed #f59e0b;
-    cursor: default;
+    padding: 8px; background: linear-gradient(180deg, #fffbeb, #fef3c7);
+    border: 3px dashed #f59e0b; cursor: default;
   }
-  .puerta-icon {
-    font-size: 2rem; margin-bottom: 4px;
-  }
-  .puerta-label {
-    font-size: 0.8rem; font-weight: 700; color: #92400e;
-    text-align: center; text-transform: uppercase; letter-spacing: 0.05em;
-  }
-  .puerta-dim {
-    font-size: 0.7rem; color: #b45309; margin-top: 2px;
-  }
-
-  /* ===== ZONA SILLAS (3m = 180px) ===== */
+  .puerta-icon { font-size: 2rem; margin-bottom: 4px; }
+  .puerta-label { font-size: 0.8rem; font-weight: 700; color: #92400e; text-align: center; text-transform: uppercase; letter-spacing: 0.05em; }
+  .puerta-dim { font-size: 0.7rem; color: #b45309; margin-top: 2px; }
   .zona-sillas {
-    height: 180px;
-    background: #f8fafc;
+    height: 180px; background: #f8fafc;
     border-top: 2px solid #999; border-bottom: 2px solid #999;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    gap: 8px; position: relative;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
     background-image: repeating-linear-gradient(0deg, transparent 0px, transparent 28px, #e8ecf0 28px, #e8ecf0 29px);
   }
-  .sillas-header {
-    font-size: 0.9rem; font-weight: 700;
-    letter-spacing: 0.15em; text-transform: uppercase; color: #475569;
-    background: #fff; padding: 5px 16px; border-radius: 4px;
-    border: 1px solid #ccc; margin-bottom: 6px;
-  }
+  .sillas-header { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: #475569; background: #fff; padding: 5px 16px; border-radius: 4px; border: 1px solid #ccc; margin-bottom: 6px; }
   .silla-grid { display: flex; gap: 8px; }
-  .silla {
-    width: 18px; height: 16px;
-    background: #cbd5e1; border: 1.5px solid #94a3b8;
-    border-radius: 2px 2px 1px 1px;
-  }
+  .silla { width: 18px; height: 16px; background: #cbd5e1; border: 1.5px solid #94a3b8; border-radius: 2px 2px 1px 1px; }
 
-  /* LEYENDA */
-  .leyenda {
-    display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px;
-    justify-content: center; padding: 12px 20px;
-    background: #fff; border: 1px solid #ddd; border-radius: 8px;
-  }
-  .ley-item {
-    display: flex; align-items: center; gap: 8px;
-    font-size: 0.85rem; color: #555;
-  }
+  .leyenda { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 20px; justify-content: center; padding: 12px 20px; background: #fff; border: 1px solid #ddd; border-radius: 8px; }
+  .ley-item { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; color: #555; }
   .ley-dot { width: 18px; height: 18px; border-radius: 4px; border: 1px solid #ccc; flex-shrink: 0; }
 
-  /* EXPORT */
   .export-wrap { margin-top: 18px; text-align: center; }
-  .btn-export {
-    font-size: 0.85rem; font-weight: 700;
-    letter-spacing: 0.05em; text-transform: uppercase; color: #555;
-    background: #fff; border: 2px solid #ccc;
-    border-radius: 8px; padding: 10px 24px; cursor: pointer; transition: all 0.15s;
-    font-family: 'Inter', sans-serif;
-  }
+  .btn-export { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: #555; background: #fff; border: 2px solid #ccc; border-radius: 8px; padding: 10px 24px; cursor: pointer; transition: all 0.15s; font-family: 'Inter', sans-serif; }
   .btn-export:hover { border-color: #3b82f6; color: #3b82f6; }
 
-  /* MODAL */
-  .modal-overlay {
-    position: fixed; inset: 0; background: rgba(0,0,0,0.5);
-    z-index: 100; display: none; align-items: center; justify-content: center;
-  }
+  .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 100; display: none; align-items: center; justify-content: center; }
   .modal-overlay.open { display: flex; }
-  .modal {
-    background: #fff; border: 2px solid #ddd;
-    border-radius: 12px; padding: 28px 28px 24px; width: 360px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.2); animation: popIn 0.2s ease;
-  }
-  .modal-badge {
-    font-size: 2.5rem; font-weight: 900; color: #fff;
-    background: #3b82f6;
-    width: 64px; height: 64px; border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 14px;
-  }
+  .modal { background: #fff; border: 2px solid #ddd; border-radius: 12px; padding: 28px 28px 24px; width: 360px; box-shadow: 0 20px 50px rgba(0,0,0,0.2); animation: popIn 0.2s ease; }
+  .modal-badge { font-size: 2rem; font-weight: 900; color: #fff; background: #3b82f6; width: 60px; height: 60px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
   .modal h3 { font-size: 1.3rem; font-weight: 700; color: #222; margin-bottom: 4px; }
   .modal p { font-size: 0.9rem; color: #888; margin-bottom: 16px; }
   .modal label { display: block; font-size: 0.85rem; color: #666; margin-bottom: 6px; font-weight: 600; }
-  .modal input[type=text] {
-    width: 100%; padding: 10px 14px; background: #f9fafb;
-    border: 2px solid #ddd; border-radius: 8px; color: #222;
-    font-family: 'Inter', sans-serif; font-size: 1rem; outline: none;
-    transition: border-color 0.15s; margin-bottom: 18px;
-  }
+  .modal input[type=text] { width: 100%; padding: 10px 14px; background: #f9fafb; border: 2px solid #ddd; border-radius: 8px; color: #222; font-family: 'Inter', sans-serif; font-size: 1rem; outline: none; transition: border-color 0.15s; margin-bottom: 18px; }
   .modal input[type=text]:focus { border-color: #3b82f6; background: #fff; }
   .modal-btns { display: flex; gap: 10px; }
-  .btn {
-    flex: 1; padding: 11px; border-radius: 8px;
-    font-size: 0.9rem; font-weight: 700; cursor: pointer;
-    border: 2px solid #ddd; background: #f9fafb; color: #666;
-    transition: all 0.15s; font-family: 'Inter', sans-serif;
-  }
+  .btn { flex: 1; padding: 11px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; border: 2px solid #ddd; background: #f9fafb; color: #666; transition: all 0.15s; font-family: 'Inter', sans-serif; }
   .btn:hover { background: #eee; }
   .btn.primary { background: #3b82f6; border-color: #3b82f6; color: #fff; }
   .btn.primary:hover { background: #2563eb; }
-  .btn.danger {
-    background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.3);
-    color: #dc2626; display: none;
-  }
+  .btn.danger { background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.3); color: #dc2626; display: none; }
   .btn.danger:hover { background: rgba(239,68,68,0.2); }
 
-  /* Scrollbar */
   .hall-outer::-webkit-scrollbar { height: 10px; }
   .hall-outer::-webkit-scrollbar-track { background: #f4e9cd; border-radius: 5px; }
   .hall-outer::-webkit-scrollbar-thumb { background: #bbb; border-radius: 5px; }
-  .hall-outer::-webkit-scrollbar-thumb:hover { background: #999; }
-
   @keyframes popIn { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
 
   @media print {
     body { background: #fff; }
-    .hall-outer { box-shadow: none; border-color: #333; }
-    .stats-bar, .export-wrap, .control-panel { display: none; }
+    .hall-outer { box-shadow: none; }
+    .stats-bar, .export-wrap, .control-panel, .hint-bar { display: none; }
     .stand-nombre { border: 1px solid #999; }
+    .resize-handle { display: none; }
   }
 </style>
 </head>
@@ -362,92 +295,148 @@
 
 <div class="header">
   <h1>📐 Plano de Sala de Conferencias</h1>
-  <div class="header-sub">27m × 10m — Zona ponencias 5m — Stands editables</div>
+  <div class="header-sub">Zona Entrada (arriba) + Sala Principal 27m × 10m</div>
 </div>
 
-<!-- PANEL DE CONTROL -->
+<div class="hint-bar">
+  <span>↔ <strong>Arrastra las barras moradas</strong> para ajustar Entrada y Registro</span>
+  <span>🖱️ <strong>Clic en cualquier stand</strong> para asignar empresa</span>
+</div>
+
 <div class="control-panel">
   <label>🔧 Gestionar stands:</label>
   <select id="select-fila">
     <option value="top">Fila Norte (A-H)</option>
     <option value="bottom">Fila Sur (I-P)</option>
+    <option value="entrada">Zona Entrada (Q-T)</option>
   </select>
-  <select id="select-letra">
-    <!-- Se llena dinámicamente -->
-  </select>
+  <select id="select-letra"></select>
   <button onclick="agregarStand()">➕ Añadir stand</button>
   <button class="danger" onclick="eliminarStand()">🗑️ Eliminar stand</button>
   <button class="secondary" onclick="resetearPlano()">🔄 Reiniciar plano</button>
 </div>
 
 <div class="stats-bar">
-  <div class="stat-pill"><div class="stat-dot" style="background:#3b82f6;"></div>Total: <strong id="s-total">14</strong></div>
+  <div class="stat-pill"><div class="stat-dot" style="background:#3b82f6;"></div>Total: <strong id="s-total">20</strong></div>
   <div class="stat-pill"><div class="stat-dot" style="background:#22c55e;"></div>Asignados: <strong id="s-asig">0</strong></div>
-  <div class="stat-pill"><div class="stat-dot" style="background:#9ca3af;"></div>Libres: <strong id="s-disp">14</strong></div>
+  <div class="stat-pill"><div class="stat-dot" style="background:#9ca3af;"></div>Libres: <strong id="s-disp">20</strong></div>
 </div>
 
 <div class="main-wrap">
   <div class="hall-outer">
-    <div class="dim-top">↔ 27 metros de ancho</div>
+    <div class="dim-top" id="dim-top-label">↔ 27 metros (sala principal)</div>
     <div class="hall-row">
-      <div class="dim-side">↕ 10 m</div>
-      <div class="sala" id="sala">
+      <div class="dim-side">↕ 10m sala + 6m entrada</div>
 
-        <!-- ZONA PONENCIAS (5m) -->
-        <div class="zona-ponencias">
-          <div class="ponencias-inner">
-            <div class="ponencias-icon">🎤</div>
-            <div class="ponencias-label">Zona de<br>Ponencias</div>
-            <div class="escenario-badge">▬ ESCENARIO ▬</div>
+      <div class="complex-wrap">
+
+        <!-- ZONA ENTRADA -->
+        <div class="zona-entrada" id="zona-entrada">
+
+          <!-- Acceso principal (resizable) -->
+          <div class="ent-acceso" id="ent-acceso" style="width:405px;">
+            <div class="ent-acceso-icon">🚪</div>
+            <div class="ent-acceso-label">Entrada<br>Principal</div>
+            <div class="ent-acceso-dim" id="dim-acceso">~6.75m</div>
+            <div class="ent-solo-badge">↓ acceso único</div>
           </div>
-          <div class="ponencias-dim">5m × 10m</div>
+
+          <!-- Handle 1: entre acceso y registro -->
+          <div class="resize-handle" id="handle-1" title="Arrastra para ajustar tamaño"></div>
+
+          <!-- Registro (resizable) -->
+          <div class="ent-registro" id="ent-registro" style="width:240px;">
+            <div class="ent-registro-icon">📋</div>
+            <div class="ent-registro-label">Registro /<br>Acreditación</div>
+            <div class="ent-mesa">Mesa<br>Registro</div>
+          </div>
+
+          <!-- Stand Q -->
+          <div class="ent-stand-individual" id="stand-Q" data-letra="Q" data-fila="entrada" onclick="abrirModal('Q', 'zona entrada')">
+            <span class="stand-letra">Q</span>
+            <input class="stand-nombre" type="text" placeholder="Empresa..." maxlength="30" readonly id="inp-Q">
+          </div>
+
+          <!-- Stand R -->
+          <div class="ent-stand-individual" id="stand-R" data-letra="R" data-fila="entrada" onclick="abrirModal('R', 'zona entrada')">
+            <span class="stand-letra">R</span>
+            <input class="stand-nombre" type="text" placeholder="Empresa..." maxlength="30" readonly id="inp-R">
+          </div>
+
+          <!-- Espacio de Puerta -->
+          <div class="ent-espacio-puerta">
+            <div class="ent-espacio-puerta-icon">🚪</div>
+            <div class="ent-espacio-puerta-label">Entrada /<br>Salida</div>
+            <div class="ent-espacio-puerta-dim">2.5m</div>
+          </div>
+
+          <!-- Stand S -->
+          <div class="ent-stand-individual" id="stand-S" data-letra="S" data-fila="entrada" onclick="abrirModal('S', 'zona entrada')">
+            <span class="stand-letra">S</span>
+            <input class="stand-nombre" type="text" placeholder="Empresa..." maxlength="30" readonly id="inp-S">
+          </div>
+
+          <!-- Stand T -->
+          <div class="ent-stand-individual" id="stand-T" data-letra="T" data-fila="entrada" onclick="abrirModal('T', 'zona entrada')">
+            <span class="stand-letra">T</span>
+            <input class="stand-nombre" type="text" placeholder="Empresa..." maxlength="30" readonly id="inp-T">
+          </div>
+
+          <!-- Salida de Emergencia -->
+          <div class="ent-salida">
+            <div class="ent-salida-icon">🚨</div>
+            <div class="ent-salida-label">Salida de<br>Emergencia</div>
+          </div>
+
         </div>
 
-        <!-- BUFFER (1.5m) -->
-        <div class="zona-buffer">
-          <div class="buffer-label">Espacio 1.5m</div>
+        <!-- Pared separadora -->
+        <div class="pared-h"></div>
+
+        <!-- SALA PRINCIPAL -->
+        <div class="sala" id="sala">
+          <div class="zona-ponencias">
+            <div class="ponencias-inner">
+              <div class="ponencias-icon">🎤</div>
+              <div class="ponencias-label">Zona de<br>Ponencias</div>
+              <div class="escenario-badge">▬ ESCENARIO ▬</div>
+            </div>
+            <div class="ponencias-dim">5m × 10m</div>
+          </div>
+          <div class="zona-buffer">
+            <div class="buffer-label">Espacio 1.5m</div>
+          </div>
+          <div class="zona-expositores">
+            <div class="fila fila-top" id="fila-top"></div>
+            <div class="zona-pasillo"><div class="pasillo-label">Pasillo 1.5m</div></div>
+            <div class="zona-sillas">
+              <div class="sillas-header">🪑 Área de Audiencia — Asientos</div>
+              <div class="silla-grid" id="sillas1"></div>
+              <div class="silla-grid" id="sillas2"></div>
+              <div class="silla-grid" id="sillas3"></div>
+            </div>
+            <div class="zona-pasillo"><div class="pasillo-label">Pasillo 1.5m</div></div>
+            <div class="fila fila-bottom" id="fila-bottom"></div>
+          </div>
         </div>
 
-        <!-- ZONA EXPOSITORES (20.5m) -->
-        <div class="zona-expositores">
-
-          <!-- FILA STANDS A-H (con puertas en C y F) -->
-          <div class="fila fila-top" id="fila-top"></div>
-
-          <!-- PASILLO SUPERIOR (1.5m) -->
-          <div class="zona-pasillo">
-            <div class="pasillo-label">Pasillo 1.5m</div>
-          </div>
-
-          <!-- SILLAS (3m) -->
-          <div class="zona-sillas">
-            <div class="sillas-header">🪑 Área de Audiencia — Asientos</div>
-            <div class="silla-grid" id="sillas1"></div>
-            <div class="silla-grid" id="sillas2"></div>
-            <div class="silla-grid" id="sillas3"></div>
-          </div>
-
-          <!-- PASILLO INFERIOR (1.5m) -->
-          <div class="zona-pasillo">
-            <div class="pasillo-label">Pasillo 1.5m</div>
-          </div>
-
-          <!-- FILA STANDS I-P -->
-          <div class="fila fila-bottom" id="fila-bottom"></div>
-
-        </div>
       </div>
     </div>
   </div>
 
   <div class="leyenda">
-    <div class="ley-item"><div class="ley-dot" style="background:#dbeafe;"></div>Zona ponencias (5m)</div>
-    <div class="ley-item"><div class="ley-dot" style="background:#ede9fe; border-style:dashed;"></div>Buffer 1.5m</div>
-    <div class="ley-item"><div class="ley-dot" style="background:#f5f5f5;"></div>Pasillos (1.5m)</div>
+    <div class="ley-item"><div class="ley-dot" style="background:#fef3c7; border-style:dashed; border-color:#f59e0b;"></div>Entrada principal</div>
+    <div class="ley-item"><div class="ley-dot" style="background:#f0f9ff; border-color:#0ea5e9;"></div>Registro</div>
+    <div class="ley-item"><div class="ley-dot" style="background:#f3e8ff; border-color:#a855f7;"></div>Stands Zona Entrada</div>
+    <div class="ley-item"><div class="ley-dot" style="background:#fffbeb; border-style:dashed; border-color:#f59e0b;"></div>Espacio puerta</div>
+    <div class="ley-item"><div class="ley-dot" style="background:#fee2e2; border-style:dashed; border-color:#ef4444;"></div>Salida emergencia</div>
+    <div class="ley-item"><div class="ley-dot" style="background:#dbeafe;"></div>Zona ponencias</div>
     <div class="ley-item"><div class="ley-dot" style="background:#fee2e2;"></div>Stands Norte</div>
-    <div class="ley-item"><div class="ley-dot" style="background:#fef3c7; border-style:dashed;"></div>🚪 Puertas/Entradas</div>
     <div class="ley-item"><div class="ley-dot" style="background:#dcfce7;"></div>Stands Sur</div>
-    <div class="ley-item"><div class="ley-dot" style="background:#f8fafc;"></div>Audiencia (3m)</div>
+    <div class="ley-item">
+      <div style="width:18px;height:18px;background:repeating-linear-gradient(180deg,#c7d2fe 0,#c7d2fe 3px,#818cf8 3px,#818cf8 5px);border-radius:2px;"></div>
+      Barra ajuste tamaño
+    </div>
   </div>
 
   <div class="export-wrap">
@@ -462,7 +451,7 @@
     <h3 id="modal-titulo">Stand A</h3>
     <p id="modal-desc">Fila norte · 2.5m × 2m</p>
     <label>Nombre de la empresa</label>
-    <input type="text" id="modal-input" placeholder="Ej: Empresa Innovadora S.A." maxlength="35" />
+    <input type="text" id="modal-input" placeholder="Ej: Empresa Innovadora S.A." maxlength="35"/>
     <div class="modal-btns">
       <button class="btn" onclick="cerrarModal()">Cancelar</button>
       <button class="btn danger" id="btn-limpiar" onclick="limpiarStand()">Quitar</button>
@@ -472,291 +461,373 @@
 </div>
 
 <script>
-// Configuración inicial
-const LETRAS_TOP = ['A','B','C','D','E','F','G','H'];
+/* ===================== DATA ===================== */
+const LETRAS_TOP    = ['A','B','C','D','E','F','G','H'];
 const LETRAS_BOTTOM = ['I','J','K','L','M','N','O','P'];
-const PUERTAS_TOP = ['C','F']; // Stands que son puertas
+const LETRAS_ENTRADA = ['Q','R','S','T'];
+const PUERTAS_TOP   = ['C','F'];
 
-// Estado de la aplicación
 const empresas = {};
-const standsExistentes = { top: [...LETRAS_TOP], bottom: [...LETRAS_BOTTOM] };
+const standsExistentes = { top:[...LETRAS_TOP], bottom:[...LETRAS_BOTTOM], entrada:[...LETRAS_ENTRADA] };
 let standActual = null;
 
-// Inicialización
 document.addEventListener('DOMContentLoaded', () => {
-  initStands();
-  crearSillas();
-  actualizarSelectLetras();
+  cargarEstado();
+  initStands(); 
+  crearSillas(); 
+  actualizarSelectLetras(); 
   actualizarStats();
+  initResizeHandles();
 });
 
-// Crear un stand normal
+function guardarEstado() {
+  const estado = {
+    empresas,
+    standsExistentes,
+    anchoAcceso: document.getElementById('ent-acceso').offsetWidth,
+    anchoRegistro: document.getElementById('ent-registro').offsetWidth
+  };
+  localStorage.setItem('planoSala', JSON.stringify(estado));
+}
+
+function cargarEstado() {
+  const data = localStorage.getItem('planoSala');
+  if (!data) return;
+
+  const estado = JSON.parse(data);
+
+  // Restaurar empresas
+  Object.assign(empresas, estado.empresas || {});
+
+  // Restaurar stands
+  if (estado.standsExistentes) {
+    standsExistentes.top = estado.standsExistentes.top;
+    standsExistentes.bottom = estado.standsExistentes.bottom;
+    standsExistentes.entrada = estado.standsExistentes.entrada;
+  }
+
+  // Restaurar tamaños
+  if (estado.anchoAcceso) {
+    document.getElementById('ent-acceso').style.width = estado.anchoAcceso + 'px';
+    document.getElementById('dim-acceso').textContent = `~${(estado.anchoAcceso/60).toFixed(1)}m`;
+  }
+
+  if (estado.anchoRegistro) {
+    document.getElementById('ent-registro').style.width = estado.anchoRegistro + 'px';
+  }
+}
+
+/* ===================== STANDS ===================== */
 function crearStand(letra, fila) {
   const div = document.createElement('div');
-  div.className = 'stand';
-  div.id = 'stand-' + letra;
-  div.dataset.letra = letra;
+  div.className = 'stand'; 
+  div.id = 'stand-'+letra;
+  div.dataset.letra = letra; 
   div.dataset.fila = fila;
   div.innerHTML = `<span class="stand-letra">${letra}</span><input class="stand-nombre" type="text" placeholder="Empresa..." maxlength="30" readonly id="inp-${letra}">`;
   div.onclick = () => abrirModal(letra, fila);
   return div;
 }
 
-// Crear una puerta/entrada
 function crearPuerta(letra) {
   const div = document.createElement('div');
-  div.className = 'puerta';
-  div.id = 'stand-' + letra;
-  div.dataset.letra = letra;
+  div.className = 'puerta'; 
+  div.id = 'stand-'+letra;
+  div.dataset.letra = letra; 
   div.dataset.esPuerta = 'true';
-  div.innerHTML = `
-    <div class="puerta-icon">🚪</div>
-    <div class="puerta-label">Entrada</div>
-    <div class="puerta-dim">${letra}</div>
-  `;
+  div.innerHTML = `<div class="puerta-icon">🚪</div><div class="puerta-label">Entrada</div><div class="puerta-dim">${letra}</div>`;
   return div;
 }
 
-// Inicializar stands en el DOM
 function initStands() {
-  const filaTop = document.getElementById('fila-top');
-  const filaBot = document.getElementById('fila-bottom');
-  
-  // Fila superior con puertas en C y F
-  standsExistentes.top.forEach(letra => {
-    if (PUERTAS_TOP.includes(letra)) {
-      filaTop.appendChild(crearPuerta(letra));
-    } else {
-      filaTop.appendChild(crearStand(letra, 'norte'));
-    }
-  });
-  
-  // Fila inferior normal
-  standsExistentes.bottom.forEach(letra => {
-    filaBot.appendChild(crearStand(letra, 'sur'));
+  standsExistentes.top.forEach(l =>
+    document.getElementById('fila-top').appendChild(PUERTAS_TOP.includes(l) ? crearPuerta(l) : crearStand(l,'norte'))
+  );
+  standsExistentes.bottom.forEach(l =>
+    document.getElementById('fila-bottom').appendChild(crearStand(l,'sur'))
+  );
+  actualizarStandsEntrada();
+}
+
+function actualizarStandsEntrada() {
+  LETRAS_ENTRADA.forEach(l => {
+    if(empresas[l]) actualizarStand(l, empresas[l]);
   });
 }
 
-// Crear sillas para la audiencia
 function crearSillas() {
   [1,2,3].forEach(n => {
-    const row = document.getElementById('sillas' + n);
-    for(let i=0; i<22; i++) {
-      const s = document.createElement('div');
-      s.className = 'silla';
+    const row = document.getElementById('sillas'+n);
+    for(let i=0;i<22;i++){
+      const s=document.createElement('div');
+      s.className='silla';
       row.appendChild(s);
     }
   });
 }
 
-// Actualizar el dropdown de letras en el panel de control
+/* ===================== RESIZE HANDLES ===================== */
+function initResizeHandles() {
+  setupHandle('handle-1', 'ent-acceso', 'left', 120, 800);
+  // Nota: handle-2 no existe en el HTML, solo hay handle-1
+}
+
+function setupHandle(handleId, targetId, side, minW, maxW) {
+  const handle = document.getElementById(handleId);
+  const target = document.getElementById(targetId);
+  let startX, startW;
+
+  handle.addEventListener('mousedown', e => {
+    e.preventDefault();
+    startX = e.clientX;
+    startW = target.offsetWidth;
+    handle.classList.add('dragging');
+    document.body.style.cursor = 'col-resize';
+    document.body.style.userSelect = 'none';
+
+    const onMove = e => {
+      const dx = e.clientX - startX;
+      const newW = Math.max(minW, Math.min(maxW, startW + dx));
+      target.style.width = newW + 'px';
+      if(targetId === 'ent-acceso') {
+        const m = (newW / 60).toFixed(1);
+        document.getElementById('dim-acceso').textContent = `~${m}m`;
+      }
+    };
+    
+    const onUp = () => {
+      handle.classList.remove('dragging');
+      document.body.style.cursor = '';
+      document.body.style.userSelect = '';
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup', onUp);
+      guardarEstado(); // ✅ Guardar después de redimensionar
+    };
+    
+    document.addEventListener('mousemove', onMove);
+    document.addEventListener('mouseup', onUp);
+  });
+
+  // Touch support
+  handle.addEventListener('touchstart', e => {
+    e.preventDefault();
+    startX = e.touches[0].clientX;
+    startW = target.offsetWidth;
+    
+    const onMove = e => {
+      const dx = e.touches[0].clientX - startX;
+      const newW = Math.max(minW, Math.min(maxW, startW + dx));
+      target.style.width = newW + 'px';
+      if(targetId === 'ent-acceso') {
+        const m = (newW / 60).toFixed(1);
+        document.getElementById('dim-acceso').textContent = `~${m}m`;
+      }
+    };
+    
+    const onEnd = () => {
+      document.removeEventListener('touchmove', onMove);
+      document.removeEventListener('touchend', onEnd);
+      guardarEstado(); // ✅ Guardar después de redimensionar (touch)
+    };
+    
+    document.addEventListener('touchmove', onMove, {passive:false});
+    document.addEventListener('touchend', onEnd);
+  }, {passive:false});
+}
+
+/* ===================== CONTROL PANEL ===================== */
 function actualizarSelectLetras() {
   const select = document.getElementById('select-letra');
   const fila = document.getElementById('select-fila').value;
-  const letras = fila === 'top' ? standsExistentes.top : standsExistentes.bottom;
-  
+  const letras = fila==='top' ? standsExistentes.top : 
+                 fila==='bottom' ? standsExistentes.bottom : 
+                 standsExistentes.entrada;
   select.innerHTML = '';
-  letras.forEach(letra => {
-    const opt = document.createElement('option');
-    opt.value = letra;
-    opt.textContent = `Stand ${letra}`;
-    select.appendChild(opt);
+  letras.forEach(l => { 
+    const o = document.createElement('option'); 
+    o.value = l; 
+    o.textContent = 'Stand '+l; 
+    select.appendChild(o); 
   });
 }
 
-// Panel de control: cambiar fila seleccionada
 document.getElementById('select-fila').addEventListener('change', actualizarSelectLetras);
 
-// Panel de control: Añadir stand
+function rerenderFila(fila, arr) {
+  if(fila === 'top'){
+    const c = document.getElementById('fila-top'); 
+    c.innerHTML = '';
+    arr.forEach(l => c.appendChild(PUERTAS_TOP.includes(l) ? crearPuerta(l) : crearStand(l,'norte')));
+  } else if(fila === 'bottom'){
+    const c = document.getElementById('fila-bottom'); 
+    c.innerHTML = '';
+    arr.forEach(l => c.appendChild(crearStand(l,'sur')));
+  }
+  // Para la zona de entrada, no necesitamos rerenderizar porque están fijos en el HTML
+}
+
 function agregarStand() {
   const fila = document.getElementById('select-fila').value;
-  const nuevaLetra = prompt('Ingrese la letra para el nuevo stand (ej: Q, R, etc.):');
-  
-  if (!nuevaLetra || !/^[A-Z]$/i.test(nuevaLetra)) {
-    alert('❌ Por favor ingresa una letra válida (A-Z)');
+  const nl = prompt('Letra para el nuevo stand (A-Z):');
+  if(!nl || !/^[A-Z]$/i.test(nl)){
+    alert('❌ Letra inválida');
     return;
   }
-  
-  const letra = nuevaLetra.toUpperCase();
-  const arrayFila = fila === 'top' ? standsExistentes.top : standsExistentes.bottom;
-  
-  if (arrayFila.includes(letra)) {
-    alert('⚠️ Este stand ya existe en esta fila');
+  const l = nl.toUpperCase();
+  const arr = fila === 'top' ? standsExistentes.top : 
+              fila === 'bottom' ? standsExistentes.bottom : 
+              standsExistentes.entrada;
+              
+  if(arr.includes(l)){
+    alert('⚠️ Ya existe');
     return;
   }
-  
-  arrayFila.push(letra);
-  arrayFila.sort();
-  
-  // Re-renderizar la fila
-  const contenedor = document.getElementById(fila === 'top' ? 'fila-top' : 'fila-bottom');
-  contenedor.innerHTML = '';
-  
-  arrayFila.forEach(l => {
-    if (fila === 'top' && PUERTAS_TOP.includes(l)) {
-      contenedor.appendChild(crearPuerta(l));
-    } else {
-      contenedor.appendChild(crearStand(l, fila === 'top' ? 'norte' : 'sur'));
-    }
-  });
-  
-  actualizarSelectLetras();
+  arr.push(l); 
+  arr.sort();
+  rerenderFila(fila, arr);
+  actualizarSelectLetras(); 
   actualizarStats();
-  alert(`✅ Stand ${letra} añadido en fila ${fila === 'top' ? 'Norte' : 'Sur'}`);
+  guardarEstado(); // ✅ Guardar después de agregar stand
+  alert(`✅ Stand ${l} añadido`);
 }
 
-// Panel de control: Eliminar stand
 function eliminarStand() {
   const fila = document.getElementById('select-fila').value;
-  const letra = document.getElementById('select-letra').value;
+  const l = document.getElementById('select-letra').value;
   
-  if (PUERTAS_TOP.includes(letra) && fila === 'top') {
-    alert('⚠️ No puedes eliminar las puertas (C y F) ya que son entradas físicas');
+  if(PUERTAS_TOP.includes(l) && fila === 'top'){
+    alert('⚠️ No puedes eliminar las puertas C y F');
     return;
   }
+  if(!confirm(`¿Eliminar stand ${l}?`)) return;
   
-  if (!confirm(`¿Estás seguro de eliminar el stand ${letra}?`)) return;
-  
-  const arrayFila = fila === 'top' ? standsExistentes.top : standsExistentes.bottom;
-  const index = arrayFila.indexOf(letra);
-  if (index > -1) {
-    arrayFila.splice(index, 1);
-  }
-  
-  // Eliminar datos de empresa si existían
-  delete empresas[letra];
-  
-  // Re-renderizar la fila
-  const contenedor = document.getElementById(fila === 'top' ? 'fila-top' : 'fila-bottom');
-  contenedor.innerHTML = '';
-  
-  arrayFila.forEach(l => {
-    if (fila === 'top' && PUERTAS_TOP.includes(l)) {
-      contenedor.appendChild(crearPuerta(l));
-    } else {
-      contenedor.appendChild(crearStand(l, fila === 'top' ? 'norte' : 'sur'));
-    }
-  });
-  
-  actualizarSelectLetras();
+  const arr = fila === 'top' ? standsExistentes.top : 
+              fila === 'bottom' ? standsExistentes.bottom : 
+              standsExistentes.entrada;
+              
+  arr.splice(arr.indexOf(l), 1);
+  delete empresas[l];
+  rerenderFila(fila, arr);
+  actualizarSelectLetras(); 
   actualizarStats();
-  alert(`✅ Stand ${letra} eliminado`);
+  guardarEstado(); // ✅ Guardar después de eliminar stand
+  alert(`✅ Stand ${l} eliminado`);
 }
 
-// Panel de control: Reiniciar plano
 function resetearPlano() {
-  if (!confirm('¿Reiniciar todo el plano? Se perderán todos los datos de empresas.')) return;
+  if(!confirm('¿Reiniciar plano completo?')) return;
   
-  // Resetear arrays
-  standsExistentes.top = [...LETRAS_TOP];
-  standsExistentes.bottom = [...LETRAS_BOTTOM];
+  standsExistentes.top = [...LETRAS_TOP]; 
+  standsExistentes.bottom = [...LETRAS_BOTTOM]; 
+  standsExistentes.entrada = [...LETRAS_ENTRADA];
   
-  // Limpiar empresas
-  Object.keys(empresas).forEach(key => delete empresas[key]);
+  Object.keys(empresas).forEach(k => delete empresas[k]);
   
-  // Re-renderizar todo
   document.getElementById('fila-top').innerHTML = '';
   document.getElementById('fila-bottom').innerHTML = '';
-  initStands();
-  actualizarSelectLetras();
-  actualizarStats();
+  document.getElementById('ent-acceso').style.width = '405px';
+  document.getElementById('ent-registro').style.width = '240px';
+  document.getElementById('dim-acceso').textContent = '~6.75m';
   
+  localStorage.removeItem('planoSala');
+  
+  initStands(); 
+  actualizarSelectLetras(); 
+  actualizarStats();
   alert('✅ Plano reiniciado');
 }
 
-// Modal: Abrir
+/* ===================== MODAL ===================== */
 function abrirModal(letra, fila) {
-  // No abrir modal para puertas
-  const elemento = document.getElementById('stand-' + letra);
-  if (elemento && elemento.dataset.esPuerta === 'true') return;
+  const el = document.getElementById('stand-'+letra);
+  if(el && el.dataset.esPuerta === 'true') return;
   
   standActual = letra;
-  document.getElementById('modal-letra').textContent = letra;
-  document.getElementById('modal-titulo').textContent = `Stand ${letra}`;
+  const badge = document.getElementById('modal-letra');
+  badge.textContent = letra;
+  badge.style.background = fila === 'zona entrada' ? '#a855f7' : '#3b82f6';
+  
+  document.getElementById('modal-titulo').textContent = 'Stand ' + letra;
   document.getElementById('modal-desc').textContent = `Fila ${fila} · 2.5m × 2m`;
   document.getElementById('modal-input').value = empresas[letra] || '';
   document.getElementById('btn-limpiar').style.display = empresas[letra] ? 'flex' : 'none';
   document.getElementById('modal-overlay').classList.add('open');
+  
   setTimeout(() => document.getElementById('modal-input').focus(), 80);
 }
 
-// Modal: Cerrar
 function cerrarModal(e) {
-  if (e && e.target !== document.getElementById('modal-overlay')) return;
+  if(e && e.target !== document.getElementById('modal-overlay')) return;
   document.getElementById('modal-overlay').classList.remove('open');
   standActual = null;
 }
 
-// Modal: Guardar empresa
 function guardarEmpresa() {
   const nombre = document.getElementById('modal-input').value.trim();
   empresas[standActual] = nombre;
   actualizarStand(standActual, nombre);
   document.getElementById('modal-overlay').classList.remove('open');
   actualizarStats();
+  guardarEstado(); // ✅ ¡AHORA SÍ SE GUARDA!
 }
 
-// Modal: Limpiar stand
 function limpiarStand() {
   delete empresas[standActual];
   actualizarStand(standActual, '');
   document.getElementById('modal-overlay').classList.remove('open');
   actualizarStats();
+  guardarEstado(); // ✅ ¡AHORA SÍ SE GUARDA!
 }
 
-// Actualizar visualización de un stand
 function actualizarStand(letra, nombre) {
   const inp = document.getElementById('inp-' + letra);
   const stand = document.getElementById('stand-' + letra);
+  if(!inp || !stand) return;
   
-  if (!inp || !stand) return;
-  
-  if (nombre) {
-    inp.value = nombre;
-    inp.classList.add('filled');
-    stand.classList.add('asignado');
-  } else {
-    inp.value = '';
-    inp.classList.remove('filled');
-    stand.classList.remove('asignado');
+  if(nombre){ 
+    inp.value = nombre; 
+    inp.classList.add('filled'); 
+    stand.classList.add('asignado'); 
+  } else { 
+    inp.value = ''; 
+    inp.classList.remove('filled'); 
+    stand.classList.remove('asignado'); 
   }
 }
 
-// Actualizar estadísticas
 function actualizarStats() {
-  const totalStands = standsExistentes.top.filter(l => !PUERTAS_TOP.includes(l)).length + 
-                      standsExistentes.bottom.length;
+  const total = standsExistentes.top.filter(l => !PUERTAS_TOP.includes(l)).length + 
+                standsExistentes.bottom.length + 
+                standsExistentes.entrada.length;
   const asig = Object.keys(empresas).filter(k => empresas[k]).length;
   
-  document.getElementById('s-total').textContent = totalStands;
+  document.getElementById('s-total').textContent = total;
   document.getElementById('s-asig').textContent = asig;
-  document.getElementById('s-disp').textContent = totalStands - asig;
+  document.getElementById('s-disp').textContent = total - asig;
 }
 
-// Exportar a CSV
 function exportarCSV() {
-  let csv = 'Stand,Fila,Empresa\n';
-  
-  standsExistentes.top.forEach(l => {
-    if (!PUERTAS_TOP.includes(l)) {
-      csv += `${l},Norte,"${empresas[l]||''}"\n`;
-    }
+  let csv = 'Stand,Zona,Empresa\n';
+  standsExistentes.top.forEach(l => { 
+    if(!PUERTAS_TOP.includes(l)) csv += `${l},Norte,"${empresas[l] || ''}"\n`; 
   });
-  standsExistentes.bottom.forEach(l => {
-    csv += `${l},Sur,"${empresas[l]||''}"\n`;
+  standsExistentes.bottom.forEach(l => { 
+    csv += `${l},Sur,"${empresas[l] || ''}"\n`; 
+  });
+  standsExistentes.entrada.forEach(l => { 
+    csv += `${l},Zona Entrada,"${empresas[l] || ''}"\n`; 
   });
   
-  const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'stands-conferencias.csv';
+  const blob = new Blob([csv], {type: 'text/csv;charset=utf-8;'});
+  const a = document.createElement('a'); 
+  a.href = URL.createObjectURL(blob); 
+  a.download = 'stands-conferencias.csv'; 
   a.click();
 }
 
-// Atajos de teclado en el modal
 document.getElementById('modal-input').addEventListener('keydown', e => {
-  if (e.key === 'Enter') guardarEmpresa();
-  if (e.key === 'Escape') { document.getElementById('modal-overlay').classList.remove('open'); }
+  if(e.key === 'Enter') guardarEmpresa();
+  if(e.key === 'Escape') document.getElementById('modal-overlay').classList.remove('open');
 });
 </script>
 </body>
